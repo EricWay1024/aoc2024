@@ -3,6 +3,7 @@ mod day01;
 mod day02; 
 mod day03;
 mod day04;
+mod day05;
 
 fn main() {
     // Call the solution for both parts of Day 1
@@ -22,4 +23,8 @@ fn main() {
     println!("Advent of Code 2024 - Day 4");
     day04::solve_part1(); // Part 1
     day04::solve_part2(); // Part 2
+
+    println!("Advent of Code 2024 - Day 5");
+    day05::solve_part1(); // Part 1
+    day05::solve_part2(); // Part 2
 }

@@ -1,7 +1,5 @@
 use std::fs;
 
-extern crate regex;
-
 fn count(s: Vec<String>) -> i32 {
     let mut ans: i32 = 0;
     for line in s {

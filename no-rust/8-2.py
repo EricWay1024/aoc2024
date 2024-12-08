@@ -1,10 +1,7 @@
 from collections import defaultdict
-f = open('../input/8.in').readlines()
-f = [line.rstrip('\n') for line in f]
-
+f = open("../input/8.in", "r").read().strip().split("\n")
 m = len(f[0])
 n = len(f)
-
 mem = defaultdict(list)
 
 for i in range(n):
@@ -26,6 +23,5 @@ for lst in mem.values():
                 ans.add((x, y))
                 x += dx
                 y += dy
-
 
 print(len(ans))

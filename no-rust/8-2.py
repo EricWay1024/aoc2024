@@ -4,6 +4,9 @@ m = len(f[0])
 n = len(f)
 mem = defaultdict(list)
 
+def gcd(a, b):
+    return a if b == 0 else gcd(b, a % b)
+
 for i in range(n):
     for j in range(m):
         if f[i][j] == '.':
@@ -18,6 +21,7 @@ for lst in mem.values():
                 continue
             dx = k - i
             dy = l - j
+            assert abs(gcd(dx, dy)) == 1
             x, y = i, j
             while 0 <= x < n and 0 <= y < m:
                 ans.add((x, y))

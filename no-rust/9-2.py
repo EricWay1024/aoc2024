@@ -12,7 +12,7 @@ def get_range(m, i):
 
 
 # Failed attempt below
-# g = [[int(c), -1 if (i % 2) == 1 else i // 2] for i, c in enumerate(f)]
+g = [[int(c), -1 if (i % 2) == 1 else i // 2] for i, c in enumerate(f)]
 
 # print(g)
 # # (x, 1) is file
@@ -20,21 +20,6 @@ def get_range(m, i):
 
 # j = len(g) - 1
 
-# def merge(j):
-#     global g
-#     sz = g[j][0]
-#     del g[j]
-
-#     cnt = 0
-
-#     while j >= 1 and g[j - 1][1] == 0:
-#         j -= 1
-#         sz += g[j][0]
-#         del g[j]
-#         cnt += 1
-    
-#     g.insert(j, [sz, -1])
-#     return cnt
 
 # attempted = set()
 # while True:
@@ -52,8 +37,6 @@ def get_range(m, i):
 #             continue
         
 #         g[j][1] = -1
-#         cnt = merge(j)
-#         j -= cnt
 
 #         if g[i][0] == g[j][0]:
 #             g[i][1] = g[j][1]

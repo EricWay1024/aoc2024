@@ -2,6 +2,11 @@
 # I believe this algorithm is right 
 # but I always encounter RecursionError: maximum recursion depth exceeded
 # when running it
+import resource, sys
+# resource.setrlimit(resource.RLIMIT_STACK, (2**29,-1))
+sys.setrecursionlimit(10**7)
+
+
 f = open("../input/11.in", "r").read().strip().split(" ")
 
 f = [int(x) for x in f]

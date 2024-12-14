@@ -61,7 +61,6 @@ def assign_quadrants(positions, width, height):
             Q3 +=1
         elif x > center_x and y > center_y:
             Q4 +=1
-        # Robots exactly on the dividing lines (x=50.5 or y=51.5) are not possible since positions are integers
     return Q1, Q2, Q3, Q4
 
 

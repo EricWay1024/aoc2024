@@ -90,7 +90,7 @@ def solve():
             warehouse[x][y] = '.'
         
         for (x, y, t) in res:
-            warehouse[x + dr][y + dc] = t
+            warehouse[x + dx][y + dy] = t
 
         return True
     

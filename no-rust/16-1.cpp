@@ -34,10 +34,8 @@ void solve() {
             nss.emplace_back(cost + 1000, r, c, nd);
         }
 
-        int dr = moves[d].first;
-        int dc = moves[d].second;
-        int nr = r + dr;
-        int nc = c + dc;
+        auto [dr, dc] = moves[d];
+        int nr = r + dr, nc = c + dc;
 
         if (nr >= 0 && nr < n && nc >= 0 && nc < m && grid[nr][nc] != '#') {
             nss.emplace_back(cost + 1, nr, nc, d);

@@ -37,7 +37,7 @@ void solve() {
         auto [dr, dc] = moves[d];
         int nr = r + dr, nc = c + dc;
 
-        if (nr >= 0 && nr < n && nc >= 0 && nc < m && grid[nr][nc] != '#') {
+        if (grid[nr][nc] != '#') {
             nss.emplace_back(cost + 1, nr, nc, d);
         }
 

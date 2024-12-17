@@ -9,7 +9,6 @@ bool vis[1000][1000][10];
 #define State tuple<long long, int, int, int>
 priority_queue<State> q;
 
-ll best_ans = -1;
 int n, m;
 int str, stc, edr, edc;
 

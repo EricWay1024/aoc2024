@@ -11,7 +11,6 @@ priority_queue<State> q;
 #define Pos tuple<int, int, int>
 map<Pos, vector<Pos>> pre;
 
-ll best_ans = -1;
 int n, m;
 int str, stc, edr, edc;
 

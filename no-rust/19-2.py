@@ -1,30 +1,10 @@
-lines = open("../input/19.in").read().split('\n')
-lines = [l for l in lines if l != '']
-
+from functools import lru_cache
+lines = [l for l in open("../input/19.in").read().split('\n') if l != '']
 patterns = lines[0].split(', ')
 targets = lines[1:]
-mem = dict()
-
+@lru_cache(maxsize=None)
 def solve(target: str):
-    if target == "":
-        return 1
+    return 1 if target == "" else sum(
+        solve(target[len(p):]) for p in patterns if target.startswith(p))
 
-    if mem.get(target) is not None:
-        return mem[target]
-    
-    res = 0
-    for p in patterns:
-        if target.startswith(p):
-            res += solve(target[len(p):])
-            
-    mem[target] = res
-    return res
-
-
-ans = 0
-for t in targets:
-    ans += solve(t)
-print(ans)
-
-
-            
+print(sum(solve(t) for t in targets))

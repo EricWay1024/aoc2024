@@ -3,32 +3,43 @@ lines = open("../input/23.in").read().strip().split('\n')
 # lines = open("test").read().strip().split('\n')
 
 g = defaultdict(bool)
-h = defaultdict(set)
+h = defaultdict(list)
 ver = set()
 
 for line in lines:
     a, b = line.split('-')
-    h[a].add(b)
-    h[b].add(a)
+    g[(a, b)] = True
+    g[(b, a)] = True
+    h[a].append(b)
+    h[b].append(a)
     ver.add(a)
     ver.add(b)
 
 
-def bron_kerbosch(graph, r=set(), p=None, x=set()):
-    if p is None:
-        p = set(graph.keys())
+threes = set()
 
-    if not p and not x:
-        yield r
-    else:
-        u = next(iter(p | x))  # Choose a pivot vertex
-        for v in p - graph[u]:
-            yield from bron_kerbosch(graph, r | {v}, p & graph[v], x & graph[v])
-            p.remove(v)
-            x.add(v)
+ver = list(ver)
+ver_num = len(ver)
+for i in range(ver_num):
+    a = ver[i]
+    for j in range(i):
+        b = ver[j]
+        if not g[(a, b)]: continue
+        for k in range(j):
+            c = ver[k]
+            if g[(b, c)] and g[(a, c)]:
+                threes.add(tuple(sorted([a, b, c])))
 
-def find_largest_complete_subgraph(graph):
-    cliques = list(bron_kerbosch(graph))
-    return max(cliques, key=len)
+ns = [set() for _ in range(1000)]
 
-print(find_largest_complete_subgraph(h))
+ns[3] = threes
+for i in range(4, 100):
+    for v in ver:
+        for s in ns[i - 1]:
+            if all(g[(u, v)] for u in s):
+                ns[i].add(tuple(sorted(list(s) + [v])))
+    print('Calculating i =', i, len(ns[i]))
+    if len(ns[i]) == 0:
+        for s in ns[i - 1]:
+            print(','.join(sorted(list(s))))
+        break

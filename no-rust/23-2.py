@@ -3,15 +3,12 @@ lines = open("../input/23.in").read().strip().split('\n')
 # lines = open("test").read().strip().split('\n')
 
 g = defaultdict(bool)
-h = defaultdict(list)
 ver = set()
 
 for line in lines:
     a, b = line.split('-')
     g[(a, b)] = True
     g[(b, a)] = True
-    h[a].append(b)
-    h[b].append(a)
     ver.add(a)
     ver.add(b)
 
@@ -30,6 +27,7 @@ for i in range(ver_num):
             if g[(b, c)] and g[(a, c)]:
                 threes.add(tuple(sorted([a, b, c])))
 
+# Slowest possible algorithm
 ns = [set() for _ in range(1000)]
 
 ns[3] = threes

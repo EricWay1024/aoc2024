@@ -1,0 +1,14 @@
+wpd <-> z11
+skh <-> jqf
+z19 <-> mdd
+wts <-> z37
+
+skh should be x15 XOR y15
+
+jqf
+
+z19 should be (cmp) xor (wfc) -> mdd
+
+z37 should be (wpp) xor (smt) -> wts 
+
+jqf,mdd,skh,wpd,wts,z11,z19,z37

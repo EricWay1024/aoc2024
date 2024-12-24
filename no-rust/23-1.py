@@ -1,6 +1,5 @@
 from collections import defaultdict
 lines = open("../input/23.in").read().strip().split('\n')
-# lines = open("test").read().strip().split('\n')
 
 g = defaultdict(bool)
 ver = set()

@@ -1,5 +1,5 @@
 # I misread the problem
-# I thought connectivity was comopsable 
+# I thought the connectivity was composable 
 
 from collections import defaultdict
 # lines = open("../input/23.in").read().strip().split('\n')

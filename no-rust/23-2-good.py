@@ -1,17 +1,10 @@
 from collections import defaultdict
 lines = open("../input/23.in").read().strip().split('\n')
-# lines = open("test").read().strip().split('\n')
-
-g = defaultdict(bool)
 h = defaultdict(set)
-ver = set()
-
 for line in lines:
     a, b = line.split('-')
     h[a].add(b)
     h[b].add(a)
-    ver.add(a)
-    ver.add(b)
 
 # https://www.altcademy.com/blog/discover-the-largest-complete-subgraph/
 def bron_kerbosch(graph, r=set(), p=None, x=set()):
